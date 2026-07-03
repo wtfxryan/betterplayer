@@ -7,7 +7,6 @@ buildscript {
     ext.annotationVersion = "1.2.0"
     ext.workVersion = "2.7.0"
     ext.coreVersion = "1.6.0"
-    ext.gradleVersion = "7.0.2"
     ext.kotlinVersion = "1.5.31"
 
     repositories {
@@ -16,7 +15,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.0.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -32,15 +31,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    namespace "com.jhomlala.betterplayer"
+    compileSdk 35
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     sourceSets {
@@ -48,7 +48,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdk 21
     }
 
     dependencies {
