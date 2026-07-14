@@ -1071,6 +1071,9 @@ class BetterPlayerController {
         _wasInFullScreenBeforePiP = _isFullScreen;
         await videoPlayerController?.enablePictureInPicture(
             left: 0, top: 0, width: 0, height: 0);
+        // Refresh the video surface to ensure the PiP window renders
+        // the current frame instead of showing a black screen.
+        videoPlayerController?.refresh();
         enterFullScreen();
         _postEvent(BetterPlayerEvent(BetterPlayerEventType.pipStart));
         return;
